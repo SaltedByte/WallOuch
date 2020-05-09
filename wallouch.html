@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Wall Ouch</title>
+<style>
+.inputs {
+  text-align: center;
+  padding: 5em;
+}
+</style>
+</head>
+<script>
+var playerX = 0;
+var playerY = 2;
+var exitX = 5;
+var exitY = 4;
+const map = [
+["1011","1000","1010","1100","1011","1100"],
+["1001","0000","1110","0001","1000","0100"],
+["0111","0111","1001","0110","0101","0101"],
+["1001","1000","0100","1101","0101","0101"],
+["0111","0111","0011","0110","0111","0111"]
+];
+</script>
+<body>
+<h2>Thisismy.studio</h2>
+<body>
+<p>To play click on of the directional keys to move throughout the maze.  Don't hit a wall and look for the exit!</p>
+
+
+
+<h1 id="output"></h1>
+<script>
+function walk() {
+  document.getElementById("output").innerHTML = "moved.";
+}
+function hit() {
+  document.getElementById("output").innerHTML = "Ouch, you hit a wall.";
+}
+function win() {
+  document.getElementById("output").innerHTML = "Fuck You in Notepad.";
+}
+function move(dir) {
+  console.log(playerY + ", "+ playerX);
+  if (dir == "up"){
+    if (map[playerY][playerX].charAt(0) == 0){
+      playerY -= 1;
+      walk();
+      console.log("moved player: " + playerY + ", "+ playerX);
+      if (playerX == exitX && playerY == exitY){
+        console.log("Fuck You in Notepad!");
+        win();
+      }
+    }
+    else {
+      console.log("player hit a wall. lol" + playerY + ", "+ playerX);
+      hit();
+    }
+  }
+ if (dir == "right"){
+   if (map[playerY][playerX].charAt(1) == 0){
+     playerX += 1;
+     walk();
+     console.log("moved player: " + playerY + ", "+ playerX);
+     if (playerX == exitX && playerY == exitY){
+       console.log("Fuck You in Notepad!");
+       win();
+     }
+   }
+   else {
+     console.log("player hit a wall. lol" + playerY + ", "+ playerX);
+     hit();
+   }
+ }
+ if (dir == "down"){
+   if (map[playerY][playerX].charAt(2) == 0){
+     playerY += 1;
+     walk();
+     console.log("moved player: " + playerY + ", "+ playerX);
+     if (playerX == exitX && playerY == exitY){
+       console.log("Fuck You in Notepad!");
+       win();
+     }
+   }
+   else {
+     console.log("player hit a wall. lol" + playerY + ", "+ playerX);
+     hit();
+   }
+ }
+ if (dir == "left"){
+   if (map[playerY][playerX].charAt(3) == 0){
+     playerX -= 1;
+     walk();
+     console.log("moved player: " + playerY + ", "+ playerX);
+     if (playerX == exitX && playerY == exitY){
+       console.log("Fuck You in Notepad!");
+       win();
+     }
+   }
+   else {
+     console.log("player hit a wall. lol" + playerY + ", "+ playerX);
+     hit();
+   }
+ }
+}
+</script>
+<h1 class="output"></h1>
+<div class="inputs">
+<button onclick="move('up');">up</button><br>
+<button onclick="move('left');">left</i></button><button onclick="move('right');">right</button><br>
+<button onclick="move('down');">down</button>
+</div>
+
+</body>
+</html>
